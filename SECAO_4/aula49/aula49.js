@@ -1,60 +1,45 @@
-// Parâmetros da função
+// 68. Maneiras de declarar funções
 
-// A função definida com a palavra "function" tem uma variável especial chamada "arguments" que sustenta todos os argumentos enviados (NÃO FUNCIONA COM ARROW FUNCTIONS)
-function funcao(a, b, c) {
-  let total = 0;
-  for (let arg of arguments) {
-    total += arg;
-  }
-  console.log(total, a, b, c);
+// 1º: Declaração de função (Function hoisting)
+function falaOi() {
+  console.log("Oi");
 }
 
-funcao(1, 2, 3, 4, 5, 6, 7);
+falaOi();
 
-// -----------------------------------------------------------------
+// --------------------------------------------------------------------------------
 
-// Atribuindo valor padrão para parâmetros
-function funcao2(a, b = 2, c = 4) {
-  console.log(a + b + c);
-}
-funcao2(2, 10, 20);
-
-// -----------------------------------------------------------------
-
-// Trabalhando com desestruturação de objetos
-function funcao3({ nome, sobrenome, idade }) {
-  console.log(nome, sobrenome, idade);
-}
-let obj = { nome: "Renato", sobrenome: "Santos", idade: 20 };
-funcao3(obj);
-
-// -----------------------------------------------------------------
-
-function funcao4([valor1, valor2, valor3]) {
-  console.log(valor1, valor2, valor3);
-}
-
-funcao4(["Renato", "Pereira", 26]);
-
-// -----------------------------------------------------------------
-
-// Trabalhando com o rest operator (sempre deve ser o ultimo parâmetro)
-function conta(operador, acumulador, ...numeros) {
-  for (let numero of numeros) {
-    if (operador === "+") acumulador += numero;
-    if (operador === "-") acumulador -= numero;
-    if (operador === "/") acumulador /= numero;
-    if (operador === "*") acumulador *= numero;
-  }
-
-  console.log(acumulador);
-}
-conta("+", 0, 20, 30, 40, 50);
-
-// -----------------------------------------------------------------
-
-// Exibindo os argumentos de arrow function utilizando rest operator
-const conta2 = (...args) => {
-  console.log(args);
+// 2º: First-class objects (Objetos de primeira classe) (Tratando funções como dados)
+// Function expression (jogando uma expressão dentro de uma variável)
+const souUmDado = function () {
+  console.log("Sou um dado.");
 };
-conta2("+", 1, 20, 30, 40, 50);
+
+souUmDado();
+
+// passando como parâmetro e executando uma função dentro da outra
+function executaFuncao(funcao) {
+  funcao();
+}
+
+executaFuncao(souUmDado);
+
+// --------------------------------------------------------------------------------
+
+// 3º: Arrow function
+const arrowFunction = () => {
+  console.log("Sou uma arrow function");
+};
+
+arrowFunction();
+
+// --------------------------------------------------------------------------------
+
+// Dentro de objetos também podem haver funções
+const objeto = {
+  falar() {
+    console.log("Estou falando!");
+  },
+};
+
+objeto.falar();
