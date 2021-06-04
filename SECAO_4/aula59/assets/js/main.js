@@ -62,7 +62,7 @@ function Calculadora() {
   this.del = () => (this.display.value = this.display.value.slice(0, -1));
 }
 
-// A constante recebe um novo molde do construtor `new Calculadora()`
+// A constante recebe um novo molde do construtor `    new Calculadora()`
 const calculadora = new Calculadora();
 
 // Iniciando a calculadora de fato
