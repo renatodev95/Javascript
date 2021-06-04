@@ -12,7 +12,7 @@ function Calculadora() {
 
   // Adicionando a função Enter para realizar conta, além do botão de igual
   this.capturaEnter = () => {
-    this.display.addEventListener("keypress", (e) => {
+    this.display.addEventListener("keyup", (e) => {
       if (e.keyCode === 13) {
         this.realizaConta();
       }
@@ -62,7 +62,7 @@ function Calculadora() {
   this.del = () => (this.display.value = this.display.value.slice(0, -1));
 }
 
-// A constante recebe um novo molde do construtor ` new Calculadora()`
+// A constante recebe um novo molde do construtor `new Calculadora()`
 const calculadora = new Calculadora();
 
 // Iniciando a calculadora de fato
