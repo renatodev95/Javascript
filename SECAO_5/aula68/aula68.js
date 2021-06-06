@@ -16,7 +16,7 @@ console.log(numerosSomaDobroPares);
 
 /* ----------------------------------------------------------------------------------------- */
 
-// SOLUÇÃO MAIS LONGAS
+// SOLUÇÃO MAIS LONGA
 
 const numerosPares = numeros.filter((valor) => valor % 2 === 0);
 const numerosDobro = numerosPares.map((valor) => valor * 2);
