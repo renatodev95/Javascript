@@ -7,13 +7,11 @@ function validaCpf(cpf) {
 
   // Criando um array a partir dos 9 primeiros dígitos
   // do CPF que veio do parâmetro
-  const newCpf = cpf.slice(0, -2).split('');
+  let newCpf = cpf.slice(0, -2).split('');
 
   // Convertendo cada string do array em numero para conseguir realizar
   // os cálculos matemáticos
-  for (let i = 0; i < newCpf.length; i++) {
-    newCpf[i] = Number(newCpf[i]);
-  }
+  newCpf = converteArray(newCpf);
 
   // Multiplicando cada dígito de newCpf pelos números em regressive
   let acumulador = 0; // criando um acumulador para verificar os dígitos
@@ -44,7 +42,7 @@ function validaCpf(cpf) {
   for (let i = 0; i < 11; i++) {
     sequencia.push(cpf[0]);
   }
-  
+
   sequencia = sequencia.join('');
   const cpfCorreto = newCpf.join('');
 
@@ -53,5 +51,15 @@ function validaCpf(cpf) {
   return `CPF inválido (matematicamente).`;
 }
 
-const cpf = '04967294112';
-console.log(validaCpf(cpf));
+function converteArray(array) {
+  for (let i = 0; i < array.length; i++) {
+    array[i] = Number(array[i]);
+  }
+  return array;
+}
+
+function verificaDigito(array, regressivo){
+  let digit;
+  let acumulador = 0;
+
+}
