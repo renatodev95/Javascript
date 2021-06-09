@@ -7,34 +7,19 @@ function validaCpf(cpf) {
 
   // Criando um array a partir dos 9 primeiros dígitos
   // do CPF que veio do parâmetro
-  let newCpf = cpf.slice(0, -2).split('');
+  let newCpf = cpf.slice(0, -2).split("");
 
   // Convertendo cada string do array em numero para conseguir realizar
   // os cálculos matemáticos
   newCpf = converteArray(newCpf);
 
-  // Multiplicando cada dígito de newCpf pelos números em regressive
-  let acumulador = 0; // criando um acumulador para verificar os dígitos
-  for (let i = 0; i < newCpf.length; i++) {
-    // console.log(newCpf[i] * regressive[i]);
-    acumulador += newCpf[i] * regressive[i];
-  }
-
   // Gerando o primeiro dígito
-  digito = 11 - (acumulador % 11);
-  digito = digito <= 9 ? digito : 0;
+  digito = verificaDigito(newCpf, regressive);
 
   newCpf.push(digito); // adicionando o primeiro digito ao final do array
   regressive.unshift(11); // adicionando o 11 ao início do array regressivo
 
-  acumulador = 0; // criando um acumulador para calcular os dígitos
-  for (let i = 0; i < newCpf.length; i++) {
-    // console.log(newCpf[i] * regressive[i]);
-    acumulador += newCpf[i] * regressive[i];
-  }
-
-  digito = 11 - (acumulador % 11);
-  digito = digito <= 9 ? digito : 0;
+  digito = verificaDigito(newCpf, regressive);
 
   newCpf.push(digito);
 
@@ -43,12 +28,12 @@ function validaCpf(cpf) {
     sequencia.push(cpf[0]);
   }
 
-  sequencia = sequencia.join('');
-  const cpfCorreto = newCpf.join('');
+  sequencia = sequencia.join("");
+  const cpfCorreto = newCpf.join("");
 
-  if (cpf === sequencia) return 'CPF inválido (sequencia).';
-  if (cpf === cpfCorreto) return 'CPF válido!';
-  return `CPF inválido (matematicamente).`;
+  if (cpf === sequencia) return "CPF inválido (sequencia).";
+  if (cpf === cpfCorreto) return "CPF válido!";
+  return "CPF inválido (matematicamente).";
 }
 
 function converteArray(array) {
@@ -58,8 +43,13 @@ function converteArray(array) {
   return array;
 }
 
-function verificaDigito(array, regressivo){
+function verificaDigito(array, regressivo) {
   let digit;
   let acumulador = 0;
-
+  for (let i = 0; i < array.length; i++) {
+    acumulador += array[i] * regressivo[i];
+  }
+  digit = 11 - (acumulador % 11);
+  digit = digit <= 9 ? digit : 0;
+  return digit;
 }
