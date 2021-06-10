@@ -1,4 +1,4 @@
-/* POO --> Getters e Setters */
+/* POO -> Getters e Setters */
 
 // Criando um symbol para proteger a propriedade velocidade de alterações externas
 const _velocidade = Symbol('velocidade');
