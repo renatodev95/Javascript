@@ -4,4 +4,4 @@
 import Pessoa, {nome, sobrenome, idade, soma} from './modulo1';
 
 const p1 = new Pessoa(nome, sobrenome);
-console.log(p1)
+console.log(p1);
