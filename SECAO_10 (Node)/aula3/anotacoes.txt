@@ -1,0 +1,52 @@
+NPM - Node Package Manager
+
+
+# Instalando um pacote pelo NPM (maneira genérica): 
+    
+    npm install nomepacote
+
+# Se a versão do pacote que instalamos tiver um circunflexo (^) significa que ela poderá ser atualizada a qualquer momento pelos desenvolvedores do pacote.
+
+# Evitando que a versão do pacote instalado seja atualizada automaticamente:
+
+    npm install nomepacote -E
+
+# Se quisermos atualizar o pacote que foi definido com uma versão pelo -E ?
+
+    npm update
+  
+# Mover de 'dependencies' para 'devDependencies':
+
+    npm install nomepacote --save-dev
+
+# Voltar de 'devDependencies' para 'dependencies':
+
+    npm install nomepacote --save-prod
+
+# Instalando uma versão específica de um pacote:
+
+    npm install nomepacote@2.1.0  (informamos um @ juntamente com a versão desejada)
+
+# SOBRE VERSÕES -> 2.      1.     0
+                   major   minor  patch
+
+# Instalando um pacote na sua ultima versão disponível de um major:
+
+    npm install nomepacote@4.x
+  
+# Desinstalando um pacote
+
+    npm uninstall nomepacote
+
+# Visualizando as dependencias que foram instaladas junto com um pacote:
+
+    npm ls
+
+# Visualizando apenas os pacotes instalados (sem as dependencias junto):
+
+    npm ls --depth=0   (se quiser ir aumentando a profundidade, basta acrescentar 1)
+  
+# Visualizando quais pacotes estão desatualizados:
+
+    npm outdated
+
