@@ -22,4 +22,3 @@ function renderizaDados(dados) {
   dados.forEach((val) => console.log(val['nome']));
 }
 leArquivo(caminhoArquivo);
-
