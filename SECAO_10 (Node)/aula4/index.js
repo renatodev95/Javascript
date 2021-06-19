@@ -33,5 +33,3 @@ async function walk(files, rootDir) {
 }
 
 readdir('/home/renato/Documents/UDEMY/Javascript/');
-
-console.log('Oi');
