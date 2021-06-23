@@ -9,7 +9,7 @@ const app = express();
 // http://meusite.com/sobre  <- GET -> Entregue a página /sobre
 // http://meusite.com/contato  <- GET -> Entregue a página /contato
 
-// Criando uma rota que vai responder (res.send) a mensagem quando a raiz do site for acessada
+// Criando uma rota que vai entregar um formulário quando a raiz do site for acessada
 app.get('/', (req, res) => {
   res.send(`
   <form action="/" method="POST">
@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
   `);
 });
 
+// Criando um método POST. Quando uma requisição do tipo post for feita, a mensagem é exibida
 app.post('/', (req, res) => {
   res.send('Recebi o formulário');
 });
